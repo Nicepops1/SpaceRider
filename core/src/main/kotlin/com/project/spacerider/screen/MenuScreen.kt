@@ -44,7 +44,6 @@ class MenuScreen(game: Game) : Screen(game, MusicAsset.MENU) {
         yesButton.onClick { Gdx.app.exit() }
         noButton.onClick { hide() }
     }
-    private val creditsDialog = TextDialog(bundle, "credits")
     private val controlsDialog = TextDialog(bundle, "controls")
 
     override fun show() {
