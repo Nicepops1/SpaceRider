@@ -23,14 +23,14 @@ import ktx.preferences.set
 
 private const val PLAYER_SPAWN_Y = 3f
 
-class MenuScreen(game: com.project.spacerider.Game) : Screen(game, MusicAsset.MENU) {
+class MenuScreen(game: Game) : Screen(game, MusicAsset.MENU) {
     private val preferences = game.preferences
     private val ui = MenuUI(bundle).apply {
         startGameButton.onClick { game.setScreen<GameScreen>() }
         soundButton.onChangeEvent {
             audioService.enabled = !this.isChecked
             preferences.flush {
-                this[com.project.spacerider.PREFERENCE_MUSIC_ENABLED_KEY] = audioService.enabled
+                this[PREFERENCE_MUSIC_ENABLED_KEY] = audioService.enabled
             }
         }
         controlButton.onClick {
@@ -56,14 +56,14 @@ class MenuScreen(game: com.project.spacerider.Game) : Screen(game, MusicAsset.ME
             createPlayer(assets, spawnY = PLAYER_SPAWN_Y)
             createDarkMatter()
         }
-        audioService.enabled = preferences[com.project.spacerider.PREFERENCE_MUSIC_ENABLED_KEY, true]
+        audioService.enabled = preferences[PREFERENCE_MUSIC_ENABLED_KEY, true]
         setupUI()
     }
 
     private fun setupUI() {
         ui.run {
             soundButton.isChecked = !audioService.enabled
-            updateHighScore(preferences[com.project.spacerider.PREFERENCE_HIGHSCORE_KEY, 0])
+            updateHighScore(preferences[PREFERENCE_HIGHSCORE_KEY, 0])
             stage += this.table
         }
     }

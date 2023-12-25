@@ -44,7 +44,7 @@ private const val ELEMENT_PADDING = 7f
 private const val MENU_ELEMENT_OFFSET_TITLE_Y = 20f
 
 class LoadingScreen(
-    private val game: com.project.spacerider.Game,
+    private val game: Game,
     private val stage: Stage = game.stage,
     private val assets: AssetStorage = game.assets
 ) : KtxScreen {

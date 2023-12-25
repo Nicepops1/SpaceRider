@@ -37,7 +37,7 @@ import kotlin.math.roundToInt
 private val LOG = logger<GameScreen>()
 private const val MAX_DELTA_TIME = 1 / 30f
 
-class GameScreen(game: com.project.spacerider.Game) : Screen(game, MusicAsset.GAME), GameEventListener {
+class GameScreen(game: Game) : Screen(game, MusicAsset.GAME), GameEventListener {
     private val ui = GameUI(assets[I18NBundleAsset.DEFAULT.descriptor]).apply {
         quitImageButton.onClick {
             game.setScreen<MenuScreen>()
@@ -175,14 +175,14 @@ class GameScreen(game: com.project.spacerider.Game) : Screen(game, MusicAsset.GA
     private fun onPlayerDeath(event: GameEvent.PlayerDeath) {
         val distance = event.distance.roundToInt()
         LOG.debug { "Player died with a distance of $distance" }
-        if (distance > preferences[com.project.spacerider.PREFERENCE_HIGHSCORE_KEY, 0]) {
+        if (distance > preferences[PREFERENCE_HIGHSCORE_KEY, 0]) {
             preferences.flush {
-                this[com.project.spacerider.PREFERENCE_HIGHSCORE_KEY] = distance
+                this[PREFERENCE_HIGHSCORE_KEY] = distance
             }
         }
         game.getScreen<GameOverScreen>().run {
             score = distance
-            highScore = preferences[com.project.spacerider.PREFERENCE_HIGHSCORE_KEY, 0]
+            highScore = preferences[PREFERENCE_HIGHSCORE_KEY, 0]
         }
         game.setScreen<GameOverScreen>()
     }

@@ -116,12 +116,12 @@ class MoveSystem(
         transform.position.x = MathUtils.clamp(
             transform.position.x + move.speed.x * deltaTime,
             0f,
-            com.project.spacerider.V_WIDTH - transform.size.x
+            V_WIDTH - transform.size.x
         )
         transform.position.y = MathUtils.clamp(
             transform.position.y + move.speed.y * deltaTime,
             1f,
-            com.project.spacerider.V_HEIGHT + 1f - transform.size.y
+            V_HEIGHT + 1f - transform.size.y
         )
     }
 }

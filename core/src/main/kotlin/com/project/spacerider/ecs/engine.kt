@@ -2,19 +2,10 @@ package com.project.spacerider.ecs
 
 import com.badlogic.ashley.core.Engine
 import com.badlogic.ashley.core.Entity
-import com.project.spacerider.UNIT_SCALE
-import com.project.spacerider.V_HEIGHT
-import com.project.spacerider.V_WIDTH
 import com.project.spacerider.asset.TextureAtlasAsset
-import com.project.spacerider.ecs.component.AnimationComponent
+import com.project.spacerider.ecs.component.*
 import com.project.spacerider.ecs.component.AnimationType.DARK_MATTER
 import com.project.spacerider.ecs.component.AnimationType.FIRE
-import com.project.spacerider.ecs.component.AttachComponent
-import com.project.spacerider.ecs.component.FacingComponent
-import com.project.spacerider.ecs.component.GraphicComponent
-import com.project.spacerider.ecs.component.MoveComponent
-import com.project.spacerider.ecs.component.PlayerComponent
-import com.project.spacerider.ecs.component.TransformComponent
 import com.project.spacerider.ecs.system.DAMAGE_AREA_HEIGHT
 import ktx.ashley.entity
 import ktx.ashley.with

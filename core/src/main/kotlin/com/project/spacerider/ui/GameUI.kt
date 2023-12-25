@@ -54,21 +54,21 @@ class GameUI(bundle: I18NBundle) : Group() {
         setAlignment(Align.center)
     }
     val touchToBeginLabel = scene2d.label(bundle["touchToBegin"], SkinLabel.LARGE.name) {
-        y = com.project.spacerider.V_HEIGHT_PIXELS - TOUCH_TO_BEGIN_LABEL_OFFSET_Y
+        y = V_HEIGHT_PIXELS - TOUCH_TO_BEGIN_LABEL_OFFSET_Y
         wrap = true
-        width = com.project.spacerider.V_WIDTH_PIXELS.toFloat()
+        width = V_WIDTH_PIXELS.toFloat()
         setAlignment(Align.center)
         color.a = 0f
         this += forever(sequence(fadeIn(ACTOR_FADE_IN_TIME) + fadeOut(ACTOR_FADE_OUT_TIME)))
     }
     val quitImageButton = scene2d.imageButton(SkinImageButton.QUIT.name) {
-        y = com.project.spacerider.V_HEIGHT_PIXELS - height - PADDING_TOP
+        y = V_HEIGHT_PIXELS - height - PADDING_TOP
         x = PADDING_LEFT_RIGHT
         color.a = 0.5f
     }
     val pauseResumeButton = scene2d.imageButton(SkinImageButton.PAUSE_PLAY.name) {
-        y = com.project.spacerider.V_HEIGHT_PIXELS - height - PADDING_TOP
-        x = com.project.spacerider.V_WIDTH_PIXELS - width - PADDING_LEFT_RIGHT
+        y = V_HEIGHT_PIXELS - height - PADDING_TOP
+        x = V_WIDTH_PIXELS - width - PADDING_LEFT_RIGHT
         color.a = 0.5f
     }
 
@@ -85,7 +85,7 @@ class GameUI(bundle: I18NBundle) : Group() {
         var gameHudHeight: Float
         var gameHudWidth: Float
         this += scene2d.image(SkinImage.GAME_HUD.atlasKey) {
-            gameHudX = com.project.spacerider.V_WIDTH_PIXELS * 0.5f - width * 0.5f
+            gameHudX = V_WIDTH_PIXELS * 0.5f - width * 0.5f
             gameHudHeight = height
             gameHudWidth = width
             x = gameHudX

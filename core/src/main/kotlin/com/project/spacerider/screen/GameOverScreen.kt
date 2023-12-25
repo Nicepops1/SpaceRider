@@ -6,7 +6,7 @@ import com.project.spacerider.ui.GameOverUI
 import ktx.actors.onClick
 import ktx.actors.plusAssign
 
-class GameOverScreen(game: com.project.spacerider.Game) : Screen(game, MusicAsset.GAME_OVER) {
+class GameOverScreen(game: Game) : Screen(game, MusicAsset.GAME_OVER) {
     private val ui = GameOverUI(bundle).apply {
         backButton.onClick {
             game.setScreen<MenuScreen>()

@@ -39,7 +39,7 @@ import ktx.collections.gdxArrayOf
 import ktx.log.debug
 import ktx.log.logger
 
-private val LOG = logger<com.project.spacerider.Game>()
+private val LOG = logger<Game>()
 const val V_WIDTH_PIXELS = 135
 const val V_HEIGHT_PIXELS = 240
 const val V_WIDTH = 9
@@ -49,9 +49,9 @@ const val PREFERENCE_MUSIC_ENABLED_KEY = "musicEnabled"
 const val PREFERENCE_HIGHSCORE_KEY = "highScore"
 
 class Game : KtxGame<KtxScreen>() {
-    val gameViewport = FitViewport(com.project.spacerider.V_WIDTH.toFloat(), com.project.spacerider.V_HEIGHT.toFloat())
+    val gameViewport = FitViewport(V_WIDTH.toFloat(), V_HEIGHT.toFloat())
     val stage: Stage by lazy {
-        val result = Stage(FitViewport(com.project.spacerider.V_WIDTH_PIXELS.toFloat(), com.project.spacerider.V_HEIGHT_PIXELS.toFloat()))
+        val result = Stage(FitViewport(V_WIDTH_PIXELS.toFloat(), V_HEIGHT_PIXELS.toFloat()))
         Gdx.input.inputProcessor = result
         result
     }
@@ -116,10 +116,10 @@ class Game : KtxGame<KtxScreen>() {
         KtxAsync.launch {
             assetRefs.joinAll()
             // skin assets loaded -> create skin
-            com.project.spacerider.LOG.debug { "It took ${(System.currentTimeMillis() - old) * 0.001f} seconds to load skin assets" }
+            LOG.debug { "It took ${(System.currentTimeMillis() - old) * 0.001f} seconds to load skin assets" }
             old = System.currentTimeMillis()
             createSkin(assets)
-            com.project.spacerider.LOG.debug { "It took ${(System.currentTimeMillis() - old) * 0.001f} seconds to create the skin" }
+            LOG.debug { "It took ${(System.currentTimeMillis() - old) * 0.001f} seconds to create the skin" }
             // go to LoadingScreen to load remaining assets
             addScreen(LoadingScreen(this@Game))
             setScreen<LoadingScreen>()
@@ -132,11 +132,11 @@ class Game : KtxGame<KtxScreen>() {
     }
 
     override fun dispose() {
-        com.project.spacerider.LOG.debug { "Dispose game with ${this.screens.size} screen(s)" }
-        com.project.spacerider.LOG.debug { "Last number of draw calls: ${profiler.drawCalls}" }
-        com.project.spacerider.LOG.debug { "Last number of texture bindings: ${profiler.textureBindings}" }
+        LOG.debug { "Dispose game with ${this.screens.size} screen(s)" }
+        LOG.debug { "Last number of draw calls: ${profiler.drawCalls}" }
+        LOG.debug { "Last number of texture bindings: ${profiler.textureBindings}" }
         MusicAsset.values().forEach {
-            com.project.spacerider.LOG.debug { "Reference count for music $it is ${assets.getReferenceCount(it.descriptor)}" }
+            LOG.debug { "Reference count for music $it is ${assets.getReferenceCount(it.descriptor)}" }
         }
 
         super.dispose()

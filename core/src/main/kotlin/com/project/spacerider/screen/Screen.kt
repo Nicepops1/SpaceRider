@@ -21,7 +21,7 @@ import java.lang.System.currentTimeMillis
 private val LOG = logger<Screen>()
 
 abstract class Screen(
-    val game: com.project.spacerider.Game,
+    val game: Game,
     private val musicAsset: MusicAsset
 ) : KtxScreen, GameEventListener {
     private val gameViewport: Viewport = game.gameViewport

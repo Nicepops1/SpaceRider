@@ -18,7 +18,7 @@ class GraphicComponent : Component, Pool.Poolable {
     fun setSpriteRegion(region: TextureRegion) {
         sprite.run {
             setRegion(region)
-            setSize(region.regionWidth * com.project.spacerider.UNIT_SCALE, region.regionHeight * com.project.spacerider.UNIT_SCALE)
+            setSize(region.regionWidth * UNIT_SCALE, region.regionHeight * UNIT_SCALE)
             setOriginCenter()
         }
     }
