@@ -99,7 +99,7 @@ class Game : KtxGame<KtxScreen>() {
             addSystem(RemoveSystem(gameEventManager))
         }
     }
-    val preferences: Preferences by lazy { Gdx.app.getPreferences("dark-matter") }
+    val preferences: Preferences by lazy { Gdx.app.getPreferences("space-rider") }
     private val profiler by lazy { GLProfiler(Gdx.graphics) }
 
     override fun create() {
