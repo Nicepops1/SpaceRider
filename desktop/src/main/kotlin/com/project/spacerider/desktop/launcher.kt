@@ -6,7 +6,7 @@ import com.project.spacerider.Game
 
 fun main() {
     Lwjgl3Application(
-        com.project.spacerider.Game(),
+        Game(),
         Lwjgl3ApplicationConfiguration().apply {
             setTitle("Space Rider")
             setWindowSizeLimits(360, 640, -1, -1)

@@ -36,9 +36,6 @@ class MenuScreen(game: Game) : Screen(game, MusicAsset.MENU) {
         controlButton.onClick {
             controlsDialog.show(stage)
         }
-        creditsButton.onClick {
-            creditsDialog.show(stage)
-        }
         quitGameButton.onClick {
             confirmDialog.show(stage)
         }

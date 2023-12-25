@@ -15,7 +15,7 @@ import ktx.scene2d.textButton
 
 
 private const val OFFSET_TITLE_Y = 15f
-private const val MENU_ELEMENT_OFFSET_TITLE_Y = 20f
+private const val MENU_ELEMENT_OFFSET_TITLE_Y = 35f
 private const val MENU_DEFAULT_PADDING = 2.5f
 private const val MAX_HIGHSCORE_DISPLAYED = 999
 
@@ -25,7 +25,6 @@ class MenuUI(private val bundle: I18NBundle) {
     val soundButton: ImageButton
     val controlButton: TextButton
     private val highScoreButton: TextButton
-    val creditsButton: TextButton
     val quitGameButton: TextButton
 
     init {
@@ -54,8 +53,6 @@ class MenuUI(private val bundle: I18NBundle) {
             highScoreButton = textButton(bundle["highscore", 0], SkinTextButton.LABEL.name)
             row()
 
-            creditsButton = textButton(bundle["credit"], SkinTextButton.DEFAULT.name)
-            row()
 
             quitGameButton = textButton(bundle["quitGame"], SkinTextButton.DEFAULT.name)
 
