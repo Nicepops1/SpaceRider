@@ -28,7 +28,7 @@ class DebugSystem(
     private val audioService: AudioService
 ) : IntervalIteratingSystem(allOf(PlayerComponent::class).get(), WINDOW_INFO_UPDATE_INTERVAL) {
     init {
-        setProcessing(false)
+        setProcessing(true)
     }
 
     override fun processEntity(entity: Entity) {
@@ -36,13 +36,13 @@ class DebugSystem(
             entity[TransformComponent.mapper]?.let { transform ->
                 when {
                     Gdx.input.isKeyPressed(Input.Keys.NUM_1) -> {
-                        // kill player
+                        // убийство игрока
                         transform.position.y = 1f
                         player.life = 1f
                         player.shield = 0f
                     }
                     Gdx.input.isKeyPressed(Input.Keys.NUM_2) -> {
-                        // add shield
+                        // применение щита
                         player.shield = min(player.maxShield, player.shield + SHIELD_GAIN)
                         gameEventManager.dispatchEvent(GameEvent.PowerUp.apply {
                             type = PowerUpType.SHIELD
@@ -50,7 +50,7 @@ class DebugSystem(
                         })
                     }
                     Gdx.input.isKeyPressed(Input.Keys.NUM_3) -> {
-                        // remove shield
+                        // снять щит
                         player.shield = max(0f, player.shield - SHIELD_GAIN)
                         gameEventManager.dispatchEvent(GameEvent.PlayerBlock.apply {
                             shield = player.shield
@@ -58,15 +58,15 @@ class DebugSystem(
                         })
                     }
                     Gdx.input.isKeyPressed(Input.Keys.NUM_4) -> {
-                        // disable movement
+                        // отключение управления
                         engine.getSystem<MoveSystem>().setProcessing(false)
                     }
                     Gdx.input.isKeyPressed(Input.Keys.NUM_5) -> {
-                        // enable movement
+                        // включение управления
                         engine.getSystem<MoveSystem>().setProcessing(true)
                     }
                     Gdx.input.isKeyPressed(Input.Keys.NUM_6) -> {
-                        // trigger player damage event
+                        // эффект получения урона
                         player.life = max(1f, player.life - PLAYER_DAMAGE)
                         gameEventManager.dispatchEvent(GameEvent.PlayerHit.apply {
                             this.player = entity
@@ -75,12 +75,17 @@ class DebugSystem(
                         })
                     }
                     Gdx.input.isKeyPressed(Input.Keys.NUM_7) -> {
-                        // trigger player heal event
+                        // восстановление здоровья
                         engine.getSystem<PowerUpSystem>()
                             .spawnPowerUp(PowerUpType.LIFE, transform.position.x, transform.position.y)
                     }
                     Gdx.input.isKeyPressed(Input.Keys.NUM_8) -> {
-                        // play three random sounds
+                        // получение энергии
+                        engine.getSystem<PowerUpSystem>()
+                            .spawnPowerUp(PowerUpType.SPEED_1, transform.position.x, transform.position.y)
+                    }
+                    Gdx.input.isKeyPressed(Input.Keys.NUM_9) -> {
+                        // проигрывание 3 звуков
                         repeat(NUM_SOUNDS_TO_TEST) {
                             audioService.play(SoundAsset.values()[MathUtils.random(0, SoundAsset.values().size - 1)])
                         }
@@ -88,7 +93,7 @@ class DebugSystem(
                 }
 
                 Gdx.graphics.setTitle(
-                    "Dark Matter Debug - pos:${transform.position}, life:${player.life}, shield:${player.shield}"
+                    "Space Rider Debug - pos:${transform.position}, life:${player.life}, shield:${player.shield}"
                 )
             }
         }
