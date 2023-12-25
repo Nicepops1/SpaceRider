@@ -83,7 +83,6 @@ class MoveSystem(
         facing: FacingComponent,
         deltaTime: Float
     ) {
-        // update horizontal move speed
         move.speed.x = when (facing.direction) {
             FacingDirection.LEFT -> min(0f, move.speed.x - HOR_ACCELERATION * deltaTime)
             FacingDirection.RIGHT -> max(0f, move.speed.x + HOR_ACCELERATION * deltaTime)
@@ -91,14 +90,12 @@ class MoveSystem(
         }
         move.speed.x = MathUtils.clamp(move.speed.x, -MAX_HOR_SPEED, MAX_HOR_SPEED)
 
-        // update vertical move speed
         move.speed.y = MathUtils.clamp(
             move.speed.y - VER_ACCELERATION * deltaTime,
             -MAX_VER_NEG_PLAYER_SPEED,
             MAX_VER_POS_PLAYER_SPEED
         )
 
-        // move player and update distance travelled so far
         val oldY = transform.position.y
         moveEntity(transform, move, deltaTime)
         player.distance += abs(transform.position.y - oldY)
