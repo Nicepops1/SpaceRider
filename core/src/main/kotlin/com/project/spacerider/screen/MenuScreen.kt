@@ -5,7 +5,7 @@ import com.project.spacerider.Game
 import com.project.spacerider.PREFERENCE_HIGHSCORE_KEY
 import com.project.spacerider.PREFERENCE_MUSIC_ENABLED_KEY
 import com.project.spacerider.asset.MusicAsset
-import com.project.spacerider.ecs.createDarkMatter
+import com.project.spacerider.ecs.createSpaceRider
 import com.project.spacerider.ecs.createPlayer
 import com.project.spacerider.ecs.system.MoveSystem
 import com.project.spacerider.ecs.system.PlayerAnimationSystem
@@ -50,7 +50,7 @@ class MenuScreen(game: Game) : Screen(game, MusicAsset.MENU) {
         super.show()
         engine.run {
             createPlayer(assets, spawnY = PLAYER_SPAWN_Y)
-            createDarkMatter()
+            createSpaceRider()
         }
         audioService.enabled = preferences[PREFERENCE_MUSIC_ENABLED_KEY, true]
         setupUI()

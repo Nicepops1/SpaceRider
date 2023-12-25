@@ -43,7 +43,6 @@ fun Engine.createPlayer(
         with<GraphicComponent>()
     }
 
-    // fire effect of ship
     entity {
         with<TransformComponent>()
         with<AttachComponent> {
@@ -62,7 +61,7 @@ fun Engine.createPlayer(
     return ship
 }
 
-fun Engine.createDarkMatter() {
+fun Engine.createSpaceRider() {
     entity {
         with<TransformComponent> {
             size.set(

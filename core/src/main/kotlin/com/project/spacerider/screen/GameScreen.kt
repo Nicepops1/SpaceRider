@@ -12,8 +12,8 @@ import com.project.spacerider.ecs.component.MAX_LIFE
 import com.project.spacerider.ecs.component.MAX_SHIELD
 import com.project.spacerider.ecs.component.PlayerComponent
 import com.project.spacerider.ecs.component.PowerUpType
-import com.project.spacerider.ecs.createDarkMatter
 import com.project.spacerider.ecs.createPlayer
+import com.project.spacerider.ecs.createSpaceRider
 import com.project.spacerider.ecs.system.MoveSystem
 import com.project.spacerider.ecs.system.PlayerAnimationSystem
 import com.project.spacerider.ecs.system.PowerUpSystem
@@ -73,7 +73,7 @@ class GameScreen(game: Game) : Screen(game, MusicAsset.GAME), GameEventListener 
             createPlayer(assets)
             audioService.play(SPAWN)
             gameEventManager.dispatchEvent(GameEvent.PlayerSpawn)
-            createDarkMatter()
+            createSpaceRider()
         }
         setupUI()
     }
