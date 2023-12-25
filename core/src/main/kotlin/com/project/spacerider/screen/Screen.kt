@@ -39,7 +39,6 @@ abstract class Screen(
         KtxAsync.launch {
             music.join()
             if (assets.isLoaded(musicAsset.descriptor)) {
-                // music was really loaded and did not get unloaded already by the hide function
                 LOG.debug { "It took ${(currentTimeMillis() - old) * 0.001f} seconds to load the $musicAsset music" }
                 audioService.play(musicAsset)
             }

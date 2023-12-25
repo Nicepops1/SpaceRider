@@ -106,7 +106,7 @@ class Game : KtxGame<KtxScreen>() {
         Gdx.app.logLevel = Application.LOG_ERROR
         profiler.enable()
 
-        // load skin and go to LoadingScreen for remaining asset loading
+        // Загрузка атласа текстур и переход на загрузочный экарн
         var old = System.currentTimeMillis()
         val assetRefs = gdxArrayOf(
             TextureAtlasAsset.values().filter { it.isSkinAtlas }.map { assets.loadAsync(it.descriptor) },

@@ -98,7 +98,6 @@ class GameScreen(game: Game) : Screen(game, MusicAsset.GAME), GameEventListener 
             )
             updateShield(0f, MAX_SHIELD)
 
-            // disable pauseResume button until game was started
             pauseResumeButton.run {
                 this.touchable = Touchable.disabled
                 this.isChecked = false

@@ -35,8 +35,6 @@ class ConfirmDialog(bundle: I18NBundle) : Dialog("", Scene2DSkin.defaultSkin, Sk
         button(noButton)
         buttonTable.pack()
 
-        // we don't scale or rotate the dialog -> set transform to false to
-        // avoid additional texture bindings and draw calls
         isTransform = false
     }
 

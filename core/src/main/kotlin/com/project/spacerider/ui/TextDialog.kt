@@ -42,8 +42,6 @@ class TextDialog(
         }).padRight(SCROLL_PANE_PAD_RIGHT)
         contentTable.pack()
 
-        // we don't scale or rotate the dialog -> set transform to false to
-        // avoid additional texture bindings and draw calls
         isTransform = false
     }
 
