@@ -47,7 +47,7 @@ class TextDialog(
         isTransform = false
     }
 
-    override fun getPrefWidth() = com.project.spacerider.V_WIDTH_PIXELS * DIALOG_WIDTH_SCALE
+    override fun getPrefWidth() = V_WIDTH_PIXELS * DIALOG_WIDTH_SCALE
 
-    override fun getPrefHeight() = com.project.spacerider.V_HEIGHT_PIXELS * DIALOG_HEIGHT_SCALE
+    override fun getPrefHeight() = V_HEIGHT_PIXELS * DIALOG_HEIGHT_SCALE
 }
