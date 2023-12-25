@@ -115,12 +115,10 @@ class Game : KtxGame<KtxScreen>() {
         ).flatten()
         KtxAsync.launch {
             assetRefs.joinAll()
-            // skin assets loaded -> create skin
             LOG.debug { "It took ${(System.currentTimeMillis() - old) * 0.001f} seconds to load skin assets" }
             old = System.currentTimeMillis()
             createSkin(assets)
             LOG.debug { "It took ${(System.currentTimeMillis() - old) * 0.001f} seconds to create the skin" }
-            // go to LoadingScreen to load remaining assets
             addScreen(LoadingScreen(this@Game))
             setScreen<LoadingScreen>()
         }
